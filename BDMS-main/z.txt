@@ -1,0 +1,38 @@
+CREATE DATABASE bdms;
+
+CREATE TABLE users(
+    id int(11) PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(255) UNIQUE,
+    email VARCHAR(255) UNIQUE,
+    password VARCHAR(255),
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE admin(
+    name VARCHAR(255) UNIQUE,
+    password VARCHAR(255)
+);
+
+CREATE TABLE donor(
+    did int(11) PRIMARY KEY AUTO_INCREMENT,
+    fullname VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE,
+    bgroup VARCHAR(255) NOT NULL,
+    weight FLOAT(4,2) NOT NULL,
+    dob DATE NOT NULL,
+    location VARCHAR(255) NOT NULL,
+    gender ENUM('male', 'female') NOT NULL,
+    lbdate date
+);
+
+CREATE TABLE contact(
+    email VARCHAR(255) NOT NULL ,
+    date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    message VARCHAR (300)
+);
+
+CREATE TABLE announcement(
+    a_no VARCHAR(10) NOT NULL ,
+    date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    details VARCHAR (300)
+);
